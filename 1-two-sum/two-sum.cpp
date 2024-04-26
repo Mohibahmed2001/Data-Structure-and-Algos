@@ -8,7 +8,7 @@ public:
        for(int i =0;i<nums.size();i++){
             int complement = target -nums[i];
             if(Mapper.find(complement)!=Mapper.end()&&Mapper[complement]!=i){
-                return{Mapper[complement],i};
+                return{i,Mapper[complement]};
             }
        }
        return{};
