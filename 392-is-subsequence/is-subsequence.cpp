@@ -7,7 +7,7 @@ public:
                 indexs++;
             }
         }
-        if(indexs>=s.size())
+        if(indexs==s.size())
         {
             return true;
         }else{
