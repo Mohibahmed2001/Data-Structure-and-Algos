@@ -17,9 +17,7 @@ public:
         dfs(root1,r1);
         dfs(root2,r2);
         return(r1==r2);
-
-
-    }
+}
     void dfs(TreeNode* root,vector<int>&vec){
         if(!root){
             return;
