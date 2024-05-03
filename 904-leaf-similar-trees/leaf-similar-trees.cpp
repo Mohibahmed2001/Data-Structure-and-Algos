@@ -12,18 +12,22 @@
 class Solution {
 public:
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
-       vector<int>leaves1;
-       vector<int>leaves2;
-       dfs(root1,leaves1);
-       dfs(root2,leaves2);
-       return leaves1 == leaves2;
+        vector<int>r1;
+        vector<int>r2;
+        dfs(root1,r1);
+        dfs(root2,r2);
+        return(r1==r2);
+
+
     }
-    void dfs(TreeNode*node, vector<int>&leaves){
-        if(node==NULL)return;
-        if(node->left==NULL&& node->right==NULL){
-            leaves.push_back(node->val);
+    void dfs(TreeNode* root,vector<int>&vec){
+        if(!root){
+            return;
         }
-        dfs(node->left,leaves);
-        dfs(node->right,leaves);
+        if(!root->left&&!root->right){
+            vec.push_back(root->val);
+        }
+        dfs(root->left,vec);
+        dfs(root->right,vec);
     }
 };
