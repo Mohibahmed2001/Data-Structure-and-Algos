@@ -15,7 +15,9 @@ public:
     if (root) {
         invertTree(root->left);
         invertTree(root->right);
-        std::swap(root->left, root->right);
+        TreeNode*temp = root->left;
+        root->left = root->right;
+        root->right = temp;
     }
     return root;
 }
