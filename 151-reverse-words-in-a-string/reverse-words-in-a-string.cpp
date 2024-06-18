@@ -17,11 +17,14 @@ public:
         if (!word.empty()) {
             add.push_back(word);
         }
-        for (int i = add.size() - 1; i >= 0; i--) {
-            reversed += add[i];
-            if (i > 0) {
-                reversed += ' ';
+        for(int i=add.size()-1;i>=0;i--){
+            if(i-1<0){
+                reversed+=add[i];
+            }else{
+               reversed+=add[i];
+               reversed+= ' '; 
             }
+        
         }
         return reversed;
     }
