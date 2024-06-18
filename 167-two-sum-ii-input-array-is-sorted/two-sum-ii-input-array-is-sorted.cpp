@@ -8,7 +8,7 @@ public:
             if(sum==target){
                 return{i+1,j+1};
             }else if(sum<target){
-                ++i;
+                i++;
             }else{
                 j--;
             }
