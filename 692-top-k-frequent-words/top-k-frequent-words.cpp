@@ -12,7 +12,7 @@ public:
         // Create a vector of pairs (frequency, word)
         vector<pair<int,string>> v;
         for (auto& it : mp) {
-            v.push_back(make_pair(it.second, it.first));
+            v.push_back({it.second, it.first});
         }
         
         // Sort primarily by frequency (in descending order)
