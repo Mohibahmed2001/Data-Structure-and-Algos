@@ -5,13 +5,13 @@ public:
         vector<string> ans;
         
         // Count frequencies of each word
-        for (string element : words) {
+        for (string& element : words) {
             mp[element]++;
         }
         
         // Create a vector of pairs (frequency, word)
         vector<pair<int,string>> v;
-        for (auto it : mp) {
+        for (auto& it : mp) {
             v.push_back(make_pair(it.second, it.first));
         }
         
