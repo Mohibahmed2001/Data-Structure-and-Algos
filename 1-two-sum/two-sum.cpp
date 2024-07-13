@@ -22,7 +22,7 @@ public:
         for (int i = 0; i < nums.size(); i++) {
             int complement = target - nums[i];
             if (mapper.find(complement) != mapper.end()) {
-                return {mapper[complement], i};
+                return {i, mapper[complement]};
             }
             mapper[nums[i]] = i;
         }
