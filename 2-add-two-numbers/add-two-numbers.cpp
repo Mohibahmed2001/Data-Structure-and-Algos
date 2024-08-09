@@ -16,7 +16,7 @@ public:
         int remainder = 0;
 
         while (list1 || list2 || remainder) {
-            int sum = remainder;  // Start with the carry from the previous step
+            int sum = remainder;
             if (list1) {
                 sum += list1->val;
                 list1 = list1->next;
@@ -26,11 +26,8 @@ public:
                 list2 = list2->next;
             }
 
-            // Calculate the new digit and remainder
-            remainder = sum / 10;
             cur->next = new ListNode(sum % 10);
-
-            // Move to the next node
+            remainder = sum / 10;
             cur = cur->next;
         }
 
