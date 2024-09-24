@@ -1,31 +1,15 @@
-/*class Solution {
+class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-       unordered_map<int, int>mapper;
+        unordered_map<int,int>mp;
         for(int i=0;i<nums.size();i++){
-            mapper[nums[i]]=i;
-       }
-       for(int i=0;i<nums.size();i++){
-        int complement = target -nums[i];
-        if(mapper.find(complement)!=mapper.end()&&mapper[complement]!=i){
-            return {i,mapper[complement]};
-        }
-
-       }
-       return {};
-    }
-    };*/
- class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> mapper;
-        for (int i = 0; i < nums.size(); i++) {
-            int complement = target - nums[i];
-            if (mapper.find(complement) != mapper.end()) {
-                return {i, mapper[complement]};
+            int answer = target - nums[i];
+            if(mp.find(answer)!=mp.end()){
+                return{i,mp[answer]};
             }
-            mapper[nums[i]] = i;
+            mp[nums[i]]=i;
         }
         return {};
+        
     }
 };
