@@ -1,4 +1,4 @@
-class Solution {
+/*class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
         int n = nums.size();
@@ -15,6 +15,28 @@ public:
         }
         for(int i=0; i<n; i++){
             ans[i] = left_Product[i] * right_Product[i];
+        }
+        return ans;
+    }
+};*/
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>ans(n);
+        vector<int>left(n);
+        left[0]=1;
+        vector<int>right(n);
+        right[n-1]=1;
+        for(int i=0;i<=nums.size()-2;i++){
+            left[i+1]=nums[i]*left[i];
+        }
+        for(int i=n-1;i>0;i--){
+            right[i-1]=nums[i]*right[i];
+        }
+        for(int i=0;i<nums.size();i++){
+            ans[i]=left[i]*right[i];
         }
         return ans;
     }
