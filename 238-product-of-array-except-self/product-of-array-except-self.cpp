@@ -25,10 +25,8 @@ public:
     vector<int> productExceptSelf(vector<int>& nums) {
         int n=nums.size();
         vector<int>ans(n);
-        vector<int>left(n);
-        left[0]=1;
-        vector<int>right(n);
-        right[n-1]=1;
+        vector<int>left(n,1);
+        vector<int>right(n,1);
         for(int i=0;i<=nums.size()-2;i++){
             left[i+1]=nums[i]*left[i];
         }
