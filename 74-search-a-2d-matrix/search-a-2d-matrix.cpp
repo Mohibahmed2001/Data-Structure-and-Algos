@@ -1,33 +1,34 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        // we get total elements inside matrix
-        int top = 0;
-        int bot= matrix.size()-1;
-        while(top<=bot){
-            int mid = (top+bot)/2;
-            if(matrix[mid][0]<target && matrix[mid][matrix[mid].size()-1]>target){
-                break;
-            }else if(matrix[mid][0]>target){
-                bot = mid-1;
-                
-            }else{
-                top = mid+1;
-            }
-        }
-        int row = (top+bot)/2;
-        int left = 0;
-        int right = matrix[row].size()-1;
-
-        while(left<=right){
-            int mid = (left+right)/2;
-            if(matrix[row][mid]==target){
+        if (matrix.empty() || matrix[0].empty()) return false;
+        int row =0;
+        int rowhigh = matrix.size()-1;
+        while(row<=rowhigh){
+            int rowmedium = (row+rowhigh)/2;
+            if(matrix[rowmedium][0]==target){
                 return true;
-            }else if(matrix[row][mid]>target){
-                right =mid -1;
+            }else if(matrix[rowmedium][0]>target){
+                rowhigh = rowmedium-1;
             }else{
-                left =mid +1;
+                row = rowmedium+1;
             }
+            
+        }
+        if (rowhigh < 0) return false;
+int romedium = rowhigh;
+        int col = 0;
+        int colhigh = matrix[0].size()-1;
+        while(col<=colhigh){
+           int colmedium = (col+colhigh)/2;
+            if(matrix[romedium][colmedium]==target){
+                return true;
+            }else if(matrix[romedium][colmedium]>=target){
+                colhigh = colmedium-1;
+            }else{
+                col = colmedium+1;
+            }
+
         }
         return false;
         
