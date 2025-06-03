@@ -1,16 +1,16 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int right = nums.size()-1;
-        int left =0;
-        while(left<=right){
-            int mid = left +(right-left)/2;
-            if(nums[mid]==target){
-                return mid;
-            }else if(nums[mid]>target){
-                right =mid-1;
+        int low =0;
+        int high =nums.size()-1;
+        while(low<=high){
+            int medium = (low + high)/2;
+            if(nums[medium] == target){
+                return medium;
+            }else if(nums[medium]>target){
+                high = medium-1;
             }else{
-                left =mid+1;
+                low = medium+1;
             }
         }
         return -1;
