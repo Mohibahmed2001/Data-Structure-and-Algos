@@ -1,36 +1,37 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if (matrix.empty() || matrix[0].empty()) return false;
-        int row =0;
-        int rowhigh = matrix.size()-1;
-        while(row<=rowhigh){
-            int rowmedium = (row+rowhigh)/2;
-            if(matrix[rowmedium][0]==target){
+        int low_col = 0;
+        int high_col = matrix.size()-1;
+        int col =-1;
+        while(low_col<=high_col){
+            int mid = (low_col+high_col)/2;
+            if(matrix[mid][0]==target){
                 return true;
-            }else if(matrix[rowmedium][0]>target){
-                rowhigh = rowmedium-1;
+            }else if(matrix[mid][0]<target){
+                col = mid;
+                low_col = mid +1;
+                
             }else{
-                row = rowmedium+1;
+                high_col = mid-1;
             }
-            
         }
-        if (rowhigh < 0) return false;
-int romedium = rowhigh;
-        int col = 0;
-        int colhigh = matrix[0].size()-1;
-        while(col<=colhigh){
-           int colmedium = (col+colhigh)/2;
-            if(matrix[romedium][colmedium]==target){
+        if(col ==-1){
+            return false;
+        }
+        int low_row =0;
+        int high_row = matrix[0].size()-1;
+        while(low_row<=high_row){
+            int mid = (low_row+high_row)/2;
+            if(matrix[col][mid]==target){
                 return true;
-            }else if(matrix[romedium][colmedium]>=target){
-                colhigh = colmedium-1;
+            }else if(matrix[col][mid]<target){
+                low_row=mid+1;
             }else{
-                col = colmedium+1;
+                high_row = mid-1;
             }
-
         }
-        return false;
+        return false;;
         
     }
 };
