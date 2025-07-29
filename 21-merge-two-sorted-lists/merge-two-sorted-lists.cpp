@@ -26,7 +26,7 @@ public:
         tail->next = list1? list1:list2;
 
         ListNode*head = dummy->next;
-        delete dummy;
+        
         return head;
     }
 };
